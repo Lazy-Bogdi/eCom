@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
             <!-- Search Icon -->
             <span class="navbar-brand">
@@ -13,7 +13,7 @@
             </button>
 
             <!-- Brand Title -->
-            <a class="navbar-brand" href="#">Your Brand</a>
+            <a class="navbar-brand" href="#">Lazy Case</a>
 
             <!-- Profile Icon -->
             <span class="navbar-brand">

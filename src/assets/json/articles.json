@@ -1,0 +1,114 @@
+{
+    "articles": [
+        {
+            "id": 1,
+            "title": "Clear Phone Case",
+            "price": 19.99,
+            "description": "Protect your phone while showcasing its sleek design with this clear phone case from Case-Mate. Made from durable materials, it offers reliable protection without compromising style.",
+            "image": "https://case-mate.com/images/product_images/19114/CM045466-Vibe-iPhone12-Clear.png",
+            "rate": 4.8,
+            "countRate": 32,
+            "category": "phone cases",
+            "date":"2023-01-03"
+        },
+        {
+            "id": 2,
+            "title": "Wireless Charging Pad",
+            "price": 39.99,
+            "description": "Experience hassle-free charging with this wireless charging pad from Case-Mate. Simply place your compatible device on the pad and enjoy fast and convenient charging.",
+            "image": "https://case-mate.com/images/product_images/21138/CM041859-Wireless-Charging-Pad-White.png",
+            "rate": 4.5,
+            "countRate": 18,
+            "category": "charging accessories",
+            "date":"2023-01-06"
+        },
+        {
+            "id": 3,
+            "title": "Leather Wallet Case",
+            "price": 49.99,
+            "description": "Combine style and functionality with this leather wallet case from Case-Mate. It features card slots and a secure closure, providing protection for your phone and essential cards.",
+            "image": "https://case-mate.com/images/product_images/19144/CM045605-Case-Mate-Black-Leather-Wallet-iphone12-max.png",
+            "rate": 4.7,
+            "countRate": 23,
+            "category": "phone cases",
+            "date":"2023-01-23"
+        },
+        {
+            "id": 4,
+            "title": "Tempered Glass Screen Protector",
+            "price": 14.99,
+            "description": "Shield your phone's screen from scratches and cracks with this tempered glass screen protector from Case-Mate. It offers high transparency and touch sensitivity for a seamless user experience.",
+            "image": "https://case-mate.com/images/product_images/21296/CM041947-anti-glare-iphone12-pro-max.png",
+            "rate": 4.6,
+            "countRate": 14,
+            "category": "screen protectors",
+            "date":"2023-01-30"
+        },
+        {
+            "id": 5,
+            "title": "Bluetooth Earbuds",
+            "price": 89.99,
+            "description": "Enjoy wireless audio with these Bluetooth earbuds from Case-Mate. They offer a comfortable fit, long battery life, and excellent sound quality for an immersive listening experience.",
+            "image": "https://case-mate.com/images/product_images/21174/CM041882-Wireless-Earbuds.png",
+            "rate": 4.4,
+            "countRate": 27,
+            "category": "audio accessories",
+            "date":"2023-02-03"
+        },
+        {
+            "id": 6,
+            "title": "Portable Power Bank",
+            "price": 59.99,
+            "description": "Never run out of battery with this portable power bank from Case-Mate. It's compact and lightweight, making it convenient to carry wherever you go. Stay connected on the move!",
+            "image": "https://case-mate.com/images/product_images/19125/CM045489-Case-Mate-Power-Pack-15k-Black.png",
+            "rate": 4.9,
+            "countRate": 36,
+            "category": "charging accessories",
+            "date":"2023-02-20"
+        },
+        {
+            "id": 7,
+            "title": "Fashionable Phone Ring",
+            "price": 9.99,
+            "description": "Add a touch of style and functionality to your phone with this fashionable phone ring from Case-Mate. It allows for a secure grip and can also be used as a stand for hands-free viewing.",
+            "image": "https://case-mate.com/images/product_images/21158/CM041861-Phone-Ring-Silver.png",
+            "rate": 4.7,
+            "countRate": 21,
+            "category": "phone accessories",
+            "date":"2023-02-24"
+        },
+        {
+            "id": 8,
+            "title": "Slim Laptop Sleeve",
+            "price": 34.99,
+            "description": "Protect your laptop in style with this slim laptop sleeve from Case-Mate. It offers a sleek and minimalistic design while providing reliable protection against scratches and bumps.",
+            "image": "https://case-mate.com/images/product_images/21502/CM042033-Slim-Laptop-Sleeve-Black.png",
+            "rate": 4.6,
+            "countRate": 19,
+            "category": "laptop accessories",
+            "date":"2023-03-16"
+        },
+        {
+            "id": 9,
+            "title": "Patterned AirPods Case",
+            "price": 24.99,
+            "description": "Personalize your AirPods case with this patterned case from Case-Mate. It features a vibrant design and offers protection against scratches and impact. Stand out from the crowd!",
+            "image": "https://case-mate.com/images/product_images/22012/CM041955-Patterned-AirPods-Case-Botanical.png",
+            "rate": 4.5,
+            "countRate": 15,
+            "category": "audio accessories",
+            "date":"2023-04-21"
+        },
+        {
+            "id": 10,
+            "title": "Rugged Phone Case",
+            "price": 39.99,
+            "description": "Keep your phone safe in extreme conditions with this rugged phone case from Case-Mate. It offers military-grade protection against drops and shocks while maintaining a sleek profile.",
+            "image": "https://case-mate.com/images/product_images/19121/CM045491-Case-Mate-Rugged-iphone12-pro.png",
+            "rate": 4.8,
+            "countRate": 28,
+            "category": "phone cases",
+            "date":"2023-05-01"
+        }
+    ]
+}

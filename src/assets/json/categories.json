@@ -1,0 +1,28 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "phone cases"
+        },
+        {
+            "id": 2,
+            "name": "charging accessories"
+        },
+        {
+            "id": 3,
+            "name": "screen protectors"
+        },
+        {
+            "id": 4,
+            "name": "audio accessories"
+        },
+        {
+            "id": 5,
+            "name": "phone accessories"
+        },
+        {
+            "id": 6,
+            "name": "laptop accessories"
+        }
+    ]
+}
