@@ -1,14 +1,33 @@
 <template>
-    <div>
+    <div class="contentMain">
         <h2>All Products</h2>
+        <div class="sort-container">
+            <label for="sort-select">Sort by:</label>
+            <select id="sort-select" v-model="sortBy" @change="sortProducts">
+                <option value="">-- Select --</option>
+                <option value="category">Category</option>
+                <option value="priceLowHigh">Price (Low to High)</option>
+                <option value="priceHighLow">Price (High to Low)</option>
+                <option value="rate">Rate</option>
+            </select>
+        </div>
+        <div>
+            <BucketComponent :bucket="bucket" @remove-from-bucket="removeFromBucket" />
+        </div>
+        <div class="pagination">
+            <button @click="prevPage" :disabled="currentPage === 1">Previous</button>
+            <span>{{ currentPage }}</span>
+            <button @click="nextPage" :disabled="currentPage === totalPages">Next</button>
+        </div>
+
         <div class="product-grid">
-            <div class="product-card" v-for="product in products" :key="product.id">
+            <div class="product-card" v-for="(product) in displayedProducts" :key="product.id">
                 <!-- Display product information -->
                 <img :src="product.image" :alt="product.title" class="product-image">
                 <h3 class="product-title">{{ product.title }}</h3>
                 <p class="product-price">{{ product.price }}</p>
                 <router-link :to="'/product/' + product.id" class="btn btn-primary">Voir</router-link>
-                <a href="#" class="btn btn-secondary">+</a>
+                <button class="btn btn-secondary" @click="addToBucket(product)">+</button>
                 <!-- Add to cart button or other actions -->
             </div>
         </div>
@@ -17,44 +36,71 @@
   
 <script>
 import articlesData from '@/assets/json/articles.json';
+import categoriesData from '@/assets/json/categories.json';
+import { mapMutations } from 'vuex';
+
+const PAGE_SIZE = 6; // Number of products per page
 
 export default {
+    name: 'AllProductsComponent',
     data() {
         return {
-            products: []
+            products: [],
+            categories: [],
+            sortBy: '', // Stores the selected sort criteria
+            currentPage: 1, // Current page number
         };
+    },
+    computed: {
+        sortedProducts() {
+            let sorted = [...this.products]; // Create a copy of the products array
+
+            if (this.sortBy === 'category') {
+                sorted.sort((a, b) => a.category.localeCompare(b.category)); // Sort by category
+            } else if (this.sortBy === 'priceLowHigh') {
+                sorted.sort((a, b) => a.price - b.price); // Sort by price (low to high)
+            } else if (this.sortBy === 'priceHighLow') {
+                sorted.sort((a, b) => b.price - a.price); // Sort by price (high to low)
+            } else if (this.sortBy === 'rate') {
+                sorted.sort((a, b) => b.rate - a.rate); // Sort by rate
+            }
+
+            return sorted;
+        },
+        totalPages() {
+            return Math.ceil(this.sortedProducts.length / PAGE_SIZE); // Calculate total number of pages
+        },
+        displayedProducts() {
+            const startIndex = (this.currentPage - 1) * PAGE_SIZE; // Calculate start index of products for the current page
+            const endIndex = startIndex + PAGE_SIZE; // Calculate end index of products for the current page
+            return this.sortedProducts.slice(startIndex, endIndex); // Get the products to display for the current page
+        },
+    },
+    methods: {
+        sortProducts() {
+            // Call the computed property to re-sort the products based on the selected criteria
+            this.sortedProducts;
+        },
+        prevPage() {
+            if (this.currentPage > 1) {
+                this.currentPage--; // Move to the previous page
+            }
+        },
+        nextPage() {
+            if (this.currentPage < this.totalPages) {
+                this.currentPage++; // Move to the next page
+            }
+        },
+        ...mapMutations(['addToBucket', 'increaseQuantity', 'decreaseQuantity']),
     },
     mounted() {
         this.products = articlesData.articles;
-    }
+        this.categories = categoriesData.categories;
+    },
 };
 </script>
   
 <style scoped>
 /* Add your custom styles here */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px;
-}
-
-.product-card {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-/* Responsive styles */
-@media screen and (max-width: 768px) {
-    .product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-}
 </style>
   

@@ -13,7 +13,7 @@
             </button>
 
             <!-- Brand Title -->
-            <a class="navbar-brand" href="/">Lazy Case</a>
+            <router-link to="/" class="navbar-brand">Lazy Case</router-link>
 
             <!-- Profile Icon -->
             <span class="navbar-brand">
@@ -21,10 +21,10 @@
             </span>
 
             <!-- Bucket with Item Count -->
-            <a class="navbar-brand" href="#">
+            <router-link to="/bucket" class="navbar-brand">
                 <i class="bi bi-bag"></i>
-                <span class="badge bg-primary">3</span>
-            </a>
+                <span class="badge bg-primary">{{ bucketItemCount }}</span>
+            </router-link>
 
             <!-- Collapsible Menu Items -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -35,9 +35,16 @@
         </div>
     </nav>
 </template>
-  
+
 <script>
+import { mapState } from 'vuex';
+
 export default {
     name: 'Navbar',
+    computed: {
+        ...mapState({
+            bucketItemCount: (state) => state.bucket.reduce((total, item) => total + item.quantity, 0),
+        }),
+    },
 };
 </script>

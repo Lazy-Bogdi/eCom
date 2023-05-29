@@ -5,8 +5,7 @@
             <div class="container">
                 <h1 class="hero-title">Welcome to Lazy Case</h1>
                 <p class="hero-subtitle">Discover stylish and protective cases for your devices</p>
-                <a href="/all-products" class="btn btn-primary">Shop Now</a>
-                
+                <router-link :to="'/all-products'" class="btn btn-primary">Shop Now</router-link>
 
                 <!-- Swiper container -->
                 <div class="swiper-container">
@@ -37,7 +36,7 @@
                         <h3 class="product-title">{{ article.title }}</h3>
                         <p class="product-price">{{ article.price }}</p>
                         <router-link :to="'/product/' + article.id" class="btn btn-primary">Voir</router-link>
-                        <a href="#" class="btn btn-secondary">+</a>
+                        <button class="btn btn-secondary" @click="addToBucket(article)">+</button>
                     </div>
                     <!-- Add more product cards here -->
                 </div>
@@ -68,6 +67,7 @@
 import Swiper from 'swiper';
 import 'swiper/swiper-bundle.css';
 import articlesData from '@/assets/json/articles.json';
+import { mapMutations } from 'vuex';
 
 export default {
     name: 'Dashboard',
@@ -101,13 +101,14 @@ export default {
         this.bestArticles = articlesData.articles
             .sort((a, b) => b.rate - a.rate)
             .slice(0, 3);
-            this.allArticles = articlesData.articles
+        this.allArticles = articlesData.articles
         this.recentArticles = this.getRecentArticles();
     },
     methods: {
         getRecentArticles() {
             return [...this.allArticles].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 5);
-        }
+        },
+        ...mapMutations(['addToBucket']),
     }
 };
 </script>
