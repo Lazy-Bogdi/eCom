@@ -5,7 +5,8 @@
             <div class="container">
                 <h1 class="hero-title">Welcome to Lazy Case</h1>
                 <p class="hero-subtitle">Discover stylish and protective cases for your devices</p>
-                <a href="#" class="btn btn-primary">Shop Now</a>
+                <a href="/all-products" class="btn btn-primary">Shop Now</a>
+                
 
                 <!-- Swiper container -->
                 <div class="swiper-container">
@@ -35,7 +36,7 @@
                         <img :src="article.image" :alt="article.title" class="product-image">
                         <h3 class="product-title">{{ article.title }}</h3>
                         <p class="product-price">{{ article.price }}</p>
-                        <a href="#" class="btn btn-primary">Voir </a>
+                        <router-link :to="'/product/' + article.id" class="btn btn-primary">Voir</router-link>
                         <a href="#" class="btn btn-secondary">+</a>
                     </div>
                     <!-- Add more product cards here -->

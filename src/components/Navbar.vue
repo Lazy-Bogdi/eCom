@@ -13,7 +13,7 @@
             </button>
 
             <!-- Brand Title -->
-            <a class="navbar-brand" href="#">Lazy Case</a>
+            <a class="navbar-brand" href="/">Lazy Case</a>
 
             <!-- Profile Icon -->
             <span class="navbar-brand">
