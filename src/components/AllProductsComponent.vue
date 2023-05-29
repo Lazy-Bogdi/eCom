@@ -4,7 +4,7 @@
         <div class="sort-container">
             <label for="sort-select">Sort by:</label>
             <select id="sort-select" v-model="sortBy" @change="sortProducts">
-                <option value="">-- Select --</option>
+                <option value=""> Par défaut </option>
                 <option value="category">Category</option>
                 <option value="priceLowHigh">Price (Low to High)</option>
                 <option value="priceHighLow">Price (High to Low)</option>

@@ -21,20 +21,31 @@
                 </button>
                 <button class="btn btn-primary" @click="removeFromBucket(product.id)">Remove</button>
             </div>
+            <div>
+                <div class="total-price">
+                    Total Price: {{ totalPrice }}
+                </div>
+            </div>
         </div>
     </div>
 </template>
   
 <script>
 import { mapMutations } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
     name: 'BucketComponent',
     computed: {
         bucket() {
             // Access the bucket state from the Vuex store
-            return this.$store.state.bucket;
+            return this.$store.getters.getBucket;
         },
+        totalPrice() {
+            // Access the bucket state from the Vuex store
+            return this.$store.getters.getTotalPrice;
+        },
+        ...mapGetters(['getBucket', 'getTotalPrice']),
     },
     methods: {
         ...mapMutations(['increaseQuantity', 'decreaseQuantity', 'removeFromBucket']),

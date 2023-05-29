@@ -6,6 +6,11 @@ export default createStore({
   },
   getters: {
     getBucket: (state) => state.bucket,
+    getTotalPrice: (state) =>
+      state.bucket.reduce(
+        (total, item) => total + item.quantity * item.price,
+        0
+      ),
   },
   mutations: {
     addToBucket(state, product) {
