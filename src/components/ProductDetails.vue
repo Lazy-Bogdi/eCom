@@ -1,20 +1,26 @@
 <template>
-    <div>
-        <h2>Product Details</h2>
-        <div v-if="product">
-            <img :src="product.image" :alt="product.title" class="product-image">
-            <h3>{{ product.title }}</h3>
-            <p>{{ product.description }}</p>
-            <!-- Add other product details as needed -->
+    <div class="product-details">
+        <div v-if="product" class="product-container">
+            <div class="product-image-container">
+                <img :src="product.image" :alt="product.title" class="product-image">
+            </div>
+            <div class="product-info">
+                <h2>{{ product.title }}</h2>
+                <p>Category: {{ product.category }}</p>
+                <p>Price: {{ product.price }}</p>
+                <p>Rating: {{ displayRating }}</p>
+                <button class="btn btn-primary" @click="addToBucket(product)">Add to Cart</button>
+            </div>
         </div>
         <div v-else>
             <p>Loading...</p>
         </div>
     </div>
-</template>
+</template>  
   
 <script>
 import articlesData from '@/assets/json/articles.json';
+import { mapMutations } from 'vuex';
 
 export default {
     data() {
@@ -23,22 +29,87 @@ export default {
         };
     },
     mounted() {
-        const productId = this.$route.params.id; 
+        const productId = this.$route.params.id;
         this.getProductDetails(productId);
     },
     methods: {
         getProductDetails(productId) {
-
             setTimeout(() => {
                 const product = articlesData.articles.find((item) => item.id === parseInt(productId));
                 this.product = product;
             }, 500);
+        },
+        ...mapMutations(['addToBucket'])
+    },
+    computed: {
+    displayRating() {
+      if (this.product) {
+        const rating = this.product.rate;
+        const roundedRating = Math.round(rating * 2) / 2; // Round to nearest 0.5
+        const fullStars = Math.floor(roundedRating);
+        const halfStar = roundedRating % 1 !== 0;
+        const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+        
+        let ratingDisplay = '';
+
+        for (let i = 0; i < fullStars; i++) {
+          ratingDisplay += '★'; // Full star
         }
+
+        if (halfStar) {
+          ratingDisplay += '½'; // Half star
+        }
+
+        for (let i = 0; i < emptyStars; i++) {
+          ratingDisplay += '☆'; // Empty star
+        }
+
+        return ratingDisplay;
+      }
+
+      return '';
     }
+  },
 };
 </script>
   
 <style scoped>
-/* Add your custom styles here */
+.product-details {
+    display: flex;
+    align-items: center;
+    /* margin: 0 0 200px 0; */
+}
+
+.product-container {
+    display: flex;
+    align-items: center;
+}
+
+.product-image-container {
+    margin: 0 20px 0 0
+}
+
+.product-image-container img {
+    /* height: 500px;
+    width: 500px; */
+    width: calc(50% - 20px);
+}
+
+.product-info {
+    flex: calc(50%);
+}
+
+.rating {
+    color: gold;
+    font-size: 24px;
+}
+
+.star {
+    display: inline-block;
+}
 </style>
+  
+  
+  
+  
   

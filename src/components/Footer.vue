@@ -35,17 +35,16 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .footer {
     position: fixed;
-    margin: 20px 0 0 0;
+    margin: 100px 0 0 0;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #f8f9fa;
-    /* Set the desired background color */
+    background-color: #9bacbe;
     padding: 20px;
-    /* Add padding if needed */
+
 }
 
 .footer li {
@@ -54,7 +53,7 @@ export default {
 </style>
 <style>
 .contentMain {
-    padding-bottom: 100px;
+    padding-bottom: 200px;
     /* Adjust the value based on the height of the footer */
 }
 </style>

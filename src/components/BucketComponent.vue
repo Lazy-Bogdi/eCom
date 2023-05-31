@@ -4,10 +4,10 @@
         <div v-if="bucket.length === 0">
             <p>Your bucket is empty.</p>
         </div>
-        <div v-else>
+        <div v-else class="product-grid">
             <div class="product-card" v-for="product in bucket" :key="product.id">
                 <!-- Display product information -->
-                <img :src="product.image" :alt="product.title" class="product-image">
+                <img :src="product.image" :alt="product.title" class="product-image card-img-top">
                 <h3 class="product-title">{{ product.title }}</h3>
                 <p class="product-price">{{ product.price }}</p>
                 <span class="product-quantity">{{ product.quantity }}</span>
@@ -29,7 +29,22 @@
         </div>
     </div>
 </template>
-  
+<style scoped>
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 200px 0 0 0
+}
+
+.product-card {
+    width: calc(20% - 20px);
+    /* Adjust the width as needed */
+    margin-bottom: 20px;
+    /* Add other styling for the product card */
+}
+</style>
+
 <script>
 import { mapMutations } from 'vuex';
 import { mapGetters } from 'vuex';

@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light top">
         <div class="container">
             <!-- Search Icon -->
             <span class="navbar-brand">
@@ -48,3 +48,10 @@ export default {
     },
 };
 </script>
+<style scoped>
+.navbar{
+    height: 150px;
+    margin: 0 0 100px 0;
+    background-color: rgb(172, 166, 50) ;
+}
+</style>
