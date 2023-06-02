@@ -1,7 +1,7 @@
 <template>
     <div class="contentMain">
         <h2>All Products</h2>
-        <div class="sort-container">
+        <div class="sort-container contentBelow">
             <label for="sort-select">Sort by:</label>
             <select id="sort-select" v-model="sortBy" @change="sortProducts">
                 <option value=""> Par défaut </option>
@@ -104,9 +104,9 @@ export default {
 <style scoped>
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
-  margin-top: 20px;
+  padding: 20px 20% 0 20%;
 }
 
 .product-card {
@@ -114,9 +114,10 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 10px;
-  background-color: #fff;
+  /* background-color: #fff; */
+  background: linear-gradient(-135deg, #ffffff, #7885a1) !important;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 25px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -124,6 +125,7 @@ export default {
   width: 100%;
   height: auto;
   margin-bottom: 10px;
+  border-radius: 15px;
 }
 
 .product-title {

@@ -1,7 +1,7 @@
 <template>
     <div class="home">
         <!-- Hero Section -->
-        <section class="hero">
+        <section class="hero contentBelow">
             <div class="container">
                 <h1 class="hero-title">Welcome to Lazy Case</h1>
                 <p class="hero-subtitle">Discover stylish and protective cases for your devices</p>
@@ -34,7 +34,7 @@
                     <div class="product-card" v-for="article in recentArticles" :key="article.title">
                         <img :src="article.image" :alt="article.title" class="product-image card-img-top">
                         <h3 class="product-title">{{ article.title }}</h3>
-                        <p class="product-price">{{ article.price }}</p>
+                        <p class="product-price">{{ article.price }} $</p>
                         <router-link :to="'/product/' + article.id" class="btn btn-primary">Voir</router-link>
                         <!--<button class="btn btn-secondary" @click="addToBucket(article)">+</button>-->
                     </div>
@@ -66,6 +66,7 @@ export default {
             slidesPerView: 'auto',
             spaceBetween: 20,
             loop: true,
+            speed: 1000,
             autoplay: {
                 delay: 3000, // Delay in milliseconds (e.g., 3000 = 3 seconds)
                 enabled: true,

@@ -19,8 +19,11 @@ nav a {
   font-weight: bold;
   color: #2c3e50;
 }
+body{
+   background: linear-gradient(-135deg, #ffffff, #7885a1) !important;
+}
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #9fc5e4;
 }
 </style>

@@ -1,6 +1,8 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
+            <!-- Brand Title -->
+            <router-link to="/" class="navbar-brand">Lazy Case</router-link>
             <!-- Search Icon -->
             <span class="navbar-brand">
                 <i class="bi bi-search"></i>
@@ -12,8 +14,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Brand Title -->
-            <router-link to="/" class="navbar-brand">Lazy Case</router-link>
+
 
             <!-- Profile Icon -->
             <span class="navbar-brand">
@@ -26,12 +27,20 @@
                 <span class="badge bg-primary">{{ bucketItemCount }}</span>
             </router-link>
 
-            <!-- Collapsible Menu Items -->
+            <!-- Collapsible Menu Items 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <!-- Add your menu items here -->
+                    <li>fesffesf</li>
+                    <li>fesffesf</li>
+                    <li>fesffesf</li>
+                    <li>fesffesf</li>
+                    <li>fesffesf</li>
+                    <li>fesffesf</li>
+                    <li>fesffesf</li>
+                    <li>fesffesf</li>
+
                 </ul>
-            </div>
+            </div>-->
         </div>
     </nav>
 </template>
@@ -48,10 +57,14 @@ export default {
     },
 };
 </script>
-<style scoped>
-.navbar{
-    height: 150px;
+<style>
+.navbar {
+    height: 120px;
     margin: 0 0 100px 0;
-    background-color: rgb(172, 166, 50) ;
+    background-color: rgb(69, 72, 93);
+}
+
+.contentBelow {
+    padding: 150px 0 0 0
 }
 </style>
